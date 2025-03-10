@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu3lf0v5sl6dd"]
+
+[ext_resource type="Script" path="res://scenes/engine.gd" id="1_xpdbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vyly2"]
+size = Vector2(32, 32)
+
+[node name="Engine" type="Area2D"]
+script = ExtResource("1_xpdbr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vyly2")

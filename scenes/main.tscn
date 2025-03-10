@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuuwv3ec8ap7p"]
+[gd_scene load_steps=4 format=3 uid="uid://cuuwv3ec8ap7p"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_25yms"]
 [ext_resource type="PackedScene" uid="uid://cwx581wx1lym6" path="res://scenes/godot.tscn" id="1_be7l6"]
+
+[sub_resource type="Curve2D" id="Curve2D_m0flm"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 490, -426, 0, 0, 0, 0, 1170, -428, 0, 0, 0, 0, 1171, 17)
+}
+point_count = 3
 
 [node name="main" type="Node2D"]
 position = Vector2(0, 412)
@@ -14,12 +20,19 @@ points = PackedVector2Array(-25, 0, 1190, 0)
 width = 100.0
 texture_mode = 1
 
-[node name="SpawnLine" type="Line2D" parent="."]
-position = Vector2(454, -443)
-points = PackedVector2Array(83, 16, 720, 15, 720, 466)
-
 [node name="SpawnThings" type="Marker2D" parent="."]
 position = Vector2(1227, 140)
 
+[node name="SpawnLine" type="Path2D" parent="."]
+position = Vector2(83, -71)
+curve = SubResource("Curve2D_m0flm")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SpawnLine"]
+position = Vector2(490, -426)
+rotation = -0.00294117
+
 [node name="Godot" parent="." instance=ExtResource("1_be7l6")]
 position = Vector2(69, 156)
+
+[node name="SpawnLineTimer" type="Timer" parent="."]
+autostart = true
