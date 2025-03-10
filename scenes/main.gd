@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func _on_spawn_things_timeout() -> void:
 	var engine = engine_scene.instantiate()
-	engine.set_speed(100.0)
+	engine.speed = 100.0
 	add_child(engine)
 	engine.set_texture(engine_icons.pick_random())
 	engine.set_target_position(godot.position)

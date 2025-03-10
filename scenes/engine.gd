@@ -3,7 +3,9 @@ extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 var target: Vector2
-var speed: float = 500.0
+var speed: float = 500.0:
+	set(value):
+		speed = value
 
 
 func _ready() -> void:
@@ -21,10 +23,6 @@ func _on_area_entered(area: Area2D) -> void:
 
 func _process(delta: float) -> void:
 	position = position.move_toward(target, delta*speed)
-
-
-func set_speed(sp: float) -> void:
-	speed = sp
 
 
 func set_target_position(pos: Vector2) -> void:
