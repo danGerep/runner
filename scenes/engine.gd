@@ -23,6 +23,10 @@ func _process(delta: float) -> void:
 	position = position.move_toward(target, delta*speed)
 
 
+func set_speed(sp: float) -> void:
+	speed = sp
+
+
 func set_target_position(pos: Vector2) -> void:
 	target = pos
 

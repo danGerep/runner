@@ -21,10 +21,11 @@ width = 100.0
 texture_mode = 1
 
 [node name="SpawnThings" type="Marker2D" parent="."]
-position = Vector2(1227, 140)
+position = Vector2(1179, 188)
 
 [node name="SpawnLine" type="Path2D" parent="."]
-position = Vector2(83, -71)
+position = Vector2(358.125, 61.7281)
+scale = Vector2(0.765051, 1.31011)
 curve = SubResource("Curve2D_m0flm")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SpawnLine"]
@@ -33,6 +34,9 @@ rotation = -0.00294117
 
 [node name="Godot" parent="." instance=ExtResource("1_be7l6")]
 position = Vector2(69, 156)
+
+[node name="SpawnThingsTimer" type="Timer" parent="."]
+autostart = true
 
 [node name="SpawnLineTimer" type="Timer" parent="."]
 autostart = true
