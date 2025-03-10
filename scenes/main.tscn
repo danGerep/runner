@@ -1,3 +1,23 @@
-[gd_scene format=3 uid="uid://cuuwv3ec8ap7p"]
+[gd_scene load_steps=2 format=3 uid="uid://cuuwv3ec8ap7p"]
+
+[ext_resource type="PackedScene" uid="uid://cwx581wx1lym6" path="res://scenes/godot.tscn" id="1_be7l6"]
 
 [node name="main" type="Node2D"]
+position = Vector2(0, 412)
+
+[node name="Floor" type="Line2D" parent="."]
+position = Vector2(5, 226)
+scale = Vector2(1, 0.08)
+points = PackedVector2Array(-25, 0, 1190, 0)
+width = 100.0
+texture_mode = 1
+
+[node name="SpawnLine" type="Line2D" parent="."]
+position = Vector2(454, -443)
+points = PackedVector2Array(83, 16, 720, 15, 720, 466)
+
+[node name="SpawnThings" type="Marker2D" parent="."]
+position = Vector2(1227, 140)
+
+[node name="Godot" parent="." instance=ExtResource("1_be7l6")]
+position = Vector2(69, 156)
