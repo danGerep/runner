@@ -7,6 +7,7 @@
 size = Vector2(128, 126)
 
 [node name="Godot" type="Area2D"]
+collision_mask = 0
 script = ExtResource("1_po662")
 
 [node name="Area2D" type="Sprite2D" parent="."]

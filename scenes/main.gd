@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var path_follow_2d: PathFollow2D = $SpawnLine/PathFollow2D
 @onready var spawn_line_timer: Timer = $SpawnLineTimer
-@onready var godot: Sprite2D = $Godot
+@onready var godot: Area2D = $Godot
 
 var engine_icons: Array = [
 	preload("res://assets/gamemaker.png"),

@@ -18,3 +18,9 @@ config/icon="res://icon.svg"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="engines"
+2d_physics/layer_3="mouse"
