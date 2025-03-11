@@ -1,20 +1,29 @@
 extends Area2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var counter_label: Label = $CounterLabel
+
+enum TYPE { NORMAL, COUNTER }
 
 var target: Vector2
-var speed: float = 500.0:
-	set(value):
-		speed = value
-
+var speed: float = 500.0
+var counter: int
+var current_counter: int
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 	mouse_entered.connect(_on_mouse_entered)
 
+	if counter > 0:
+		counter_label.text = str(counter)
+
 
 func _on_mouse_entered() -> void:
-	queue_free()
+	if counter == 1:
+		queue_free()
+
+	counter -= 1
+	counter_label.text = str(counter)
 
 
 func _on_area_entered(area: Area2D) -> void:

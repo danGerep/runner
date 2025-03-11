@@ -13,3 +13,9 @@ script = ExtResource("1_xpdbr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_vyly2")
+
+[node name="CounterLabel" type="Label" parent="."]
+offset_left = -9.0
+offset_top = -35.0
+offset_right = 31.0
+offset_bottom = -12.0
