@@ -8,7 +8,8 @@ enum TYPE { NORMAL, COUNTER }
 var target: Vector2
 var speed: float = 500.0
 var counter: int
-var current_counter: int
+var type: TYPE = TYPE.NORMAL
+
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
@@ -19,6 +20,9 @@ func _ready() -> void:
 
 
 func _on_mouse_entered() -> void:
+	if type == TYPE.NORMAL:
+		queue_free()
+
 	if counter == 1:
 		queue_free()
 
@@ -27,7 +31,7 @@ func _on_mouse_entered() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	pass
+	print(area.name)
 
 
 func _process(delta: float) -> void:

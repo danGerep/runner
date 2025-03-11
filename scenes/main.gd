@@ -24,6 +24,7 @@ func _on_spawn_things_timeout() -> void:
 	var engine = engine_scene.instantiate()
 	engine.speed = 100.0
 	engine.counter = randi_range(0, 5)
+	engine.type = engine.TYPE.COUNTER
 	add_child(engine)
 	engine.set_texture(engine_icons.pick_random())
 	engine.set_target_position(godot.position)
