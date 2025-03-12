@@ -2,8 +2,11 @@ extends Area2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+enum TYPE {LIFE, SLOW_DOWN_TIME, REVER_TIME}
+
 var target: Vector2
 var speed: float = 200.0
+var type: TYPE = TYPE.LIFE
 
 
 func _ready() -> void:
@@ -12,6 +15,7 @@ func _ready() -> void:
 
 
 func _on_mouse_entered() -> void:
+	GameManager.good_thing_collected.emit(TYPE.keys()[type])
 	queue_free()
 
 
