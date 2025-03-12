@@ -1,9 +1,11 @@
 extends Node
 
 var engine_scene: PackedScene = preload("res://scenes/engine.tscn")
+var good_thing_scene: PackedScene = preload("res://scenes/good_thing.tscn")
 
 @onready var spawn_things_timer: Timer = $SpawnThingsTimer
 @onready var spawn_things_with_counter: Timer = $SpawnThingsWithCounter
+@onready var spawn_good_things: Timer = $SpawnGoodThings
 
 var engine_icons: Array = [
 	preload("res://assets/gamemaker.png"),
@@ -18,6 +20,20 @@ var engine_icons: Array = [
 func _ready() -> void:
 	spawn_things_timer.timeout.connect(_on_spawn_things_timer_timeout)
 	spawn_things_with_counter.timeout.connect(_on_spawn_things_with_counter_timeout)
+	spawn_good_things.timeout.connect(_on_spawn_good_things_timeout)
+
+
+func _on_spawn_good_things_timeout() -> void:
+	path_follow_2d.progress_ratio = randf()
+
+	var good_thing = good_thing_scene.instantiate()
+	good_thing.speed = 100.0
+	add_child(good_thing)
+
+	#engine.set_texture(engine_icons.pick_random())
+	# TODO: should the good thing fly on a different direction?
+	good_thing.set_target_position(godot.global_position)
+	good_thing.position = path_follow_2d.global_position
 
 
 func _on_spawn_things_with_counter_timeout() -> void:

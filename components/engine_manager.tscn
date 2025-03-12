@@ -10,3 +10,6 @@ autostart = true
 
 [node name="SpawnThingsTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="SpawnGoodThings" type="Timer" parent="."]
+autostart = true

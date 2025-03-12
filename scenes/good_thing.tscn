@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwr8barx4xlxr"]
+
+[ext_resource type="Script" path="res://scenes/good_thing.gd" id="1_2kwfo"]
+[ext_resource type="Texture2D" uid="uid://d2yp7pgyijid4" path="res://assets/heart.png" id="1_xri4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1bv2"]
+size = Vector2(35, 28)
+
+[node name="GoodThing" type="Area2D"]
+script = ExtResource("1_2kwfo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xri4j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_i1bv2")
