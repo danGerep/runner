@@ -6,7 +6,7 @@ extends Area2D
 enum TYPE { NORMAL, COUNTER }
 
 var target: Vector2
-var speed: float = 500.0
+var speed: float = 200.0
 var counter: int
 var type: TYPE = TYPE.NORMAL
 
@@ -21,9 +21,11 @@ func _ready() -> void:
 
 func _on_mouse_entered() -> void:
 	if type == TYPE.NORMAL:
+		GameManager.engine_killed.emit(1)
 		queue_free()
 
 	if counter == 1:
+		GameManager.engine_killed.emit(1)
 		queue_free()
 
 	counter -= 1
@@ -31,7 +33,7 @@ func _on_mouse_entered() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	print(area.name)
+	queue_free()
 
 
 func _process(delta: float) -> void:

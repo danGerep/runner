@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuuwv3ec8ap7p"]
+[gd_scene load_steps=5 format=3 uid="uid://cuuwv3ec8ap7p"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_25yms"]
 [ext_resource type="PackedScene" uid="uid://cwx581wx1lym6" path="res://scenes/godot.tscn" id="1_be7l6"]
+[ext_resource type="PackedScene" uid="uid://diey8mf2topkl" path="res://scenes/heart.tscn" id="3_lcknl"]
 
 [sub_resource type="Curve2D" id="Curve2D_m0flm"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 490, -426, 0, 0, 0, 0, 1170, -428, 0, 0, 0, 0, 1171, 17)
+"points": PackedVector2Array(0, 0, 0, 0, 224.658, -427.379, 0, 0, 0, 0, 1170, -428, 0, 0, 0, 0, 1171, 17)
 }
 point_count = 3
 
@@ -16,27 +17,62 @@ script = ExtResource("1_25yms")
 [node name="Floor" type="Line2D" parent="."]
 position = Vector2(5, 226)
 scale = Vector2(1, 0.08)
-points = PackedVector2Array(-25, 0, 1190, 0)
+points = PackedVector2Array(-25, 0, 1302, 12.5)
 width = 100.0
 texture_mode = 1
 
-[node name="SpawnThings" type="Marker2D" parent="."]
-position = Vector2(1179, 188)
-
 [node name="SpawnLine" type="Path2D" parent="."]
-position = Vector2(358.125, 61.7281)
-scale = Vector2(0.765051, 1.31011)
+position = Vector2(435, 188)
+scale = Vector2(0.76941, 1.46821)
 curve = SubResource("Curve2D_m0flm")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="SpawnLine"]
-position = Vector2(490, -426)
-rotation = -0.00294117
+position = Vector2(224.658, -427.379)
+rotation = -0.000656907
 
 [node name="Godot" parent="." instance=ExtResource("1_be7l6")]
 position = Vector2(69, 156)
 
+[node name="SpawnThingsWithCounter" type="Timer" parent="."]
+autostart = true
+
 [node name="SpawnThingsTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="SpawnLineTimer" type="Timer" parent="."]
-autostart = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PointsLabel" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.5
+offset_right = 8.5
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_right = 108.0
+offset_bottom = 44.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="LifeContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Heart" parent="CanvasLayer/PanelContainer/MarginContainer/LifeContainer" instance=ExtResource("3_lcknl")]
+layout_mode = 2
+
+[node name="Heart2" parent="CanvasLayer/PanelContainer/MarginContainer/LifeContainer" instance=ExtResource("3_lcknl")]
+layout_mode = 2
+
+[node name="Heart3" parent="CanvasLayer/PanelContainer/MarginContainer/LifeContainer" instance=ExtResource("3_lcknl")]
+layout_mode = 2
