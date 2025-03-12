@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwbqbva5w2y4r"]
+
+[ext_resource type="Script" path="res://components/engine_manager.gd" id="1_ps4w2"]
+
+[node name="EngineManager" type="Node"]
+script = ExtResource("1_ps4w2")
+
+[node name="SpawnThingsWithCounter" type="Timer" parent="."]
+autostart = true
+
+[node name="SpawnThingsTimer" type="Timer" parent="."]
+autostart = true

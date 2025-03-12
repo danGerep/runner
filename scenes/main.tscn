@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuuwv3ec8ap7p"]
+[gd_scene load_steps=6 format=3 uid="uid://cuuwv3ec8ap7p"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_25yms"]
 [ext_resource type="PackedScene" uid="uid://cwx581wx1lym6" path="res://scenes/godot.tscn" id="1_be7l6"]
 [ext_resource type="PackedScene" uid="uid://diey8mf2topkl" path="res://scenes/heart.tscn" id="3_lcknl"]
+[ext_resource type="PackedScene" uid="uid://dwbqbva5w2y4r" path="res://components/engine_manager.tscn" id="4_mik1g"]
 
 [sub_resource type="Curve2D" id="Curve2D_m0flm"]
 _data = {
@@ -13,6 +14,10 @@ point_count = 3
 [node name="main" type="Node2D"]
 position = Vector2(0, 412)
 script = ExtResource("1_25yms")
+
+[node name="EngineManager" parent="." node_paths=PackedStringArray("godot", "path_follow_2d") instance=ExtResource("4_mik1g")]
+godot = NodePath("../Godot")
+path_follow_2d = NodePath("../SpawnLine/PathFollow2D")
 
 [node name="Floor" type="Line2D" parent="."]
 position = Vector2(5, 226)
@@ -32,12 +37,6 @@ rotation = -0.000656907
 
 [node name="Godot" parent="." instance=ExtResource("1_be7l6")]
 position = Vector2(69, 156)
-
-[node name="SpawnThingsWithCounter" type="Timer" parent="."]
-autostart = true
-
-[node name="SpawnThingsTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
