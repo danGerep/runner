@@ -6,6 +6,7 @@ var heart_scene: PackedScene = preload("res://scenes/heart.tscn")
 @onready var godot: Area2D = $Godot
 @onready var life_container: HBoxContainer = %LifeContainer
 @onready var points_label: Label = %PointsLabel
+@onready var engine_manager: Node = $EngineManager
 
 
 var total_points: int
@@ -21,6 +22,8 @@ func _on_good_thing_collected(type: String) -> void:
 	if type == "LIFE":
 		var heart = heart_scene.instantiate()
 		life_container.add_child(heart)
+	if type == "SLOW_DOWN_TIME":
+		engine_manager.slow_down_time()
 
 
 func _on_player_damaged() -> void:

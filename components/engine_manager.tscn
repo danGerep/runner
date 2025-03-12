@@ -13,3 +13,7 @@ autostart = true
 
 [node name="SpawnGoodThings" type="Timer" parent="."]
 autostart = true
+
+[node name="Engines" type="Node" parent="."]
+
+[node name="GoodThings" type="Node" parent="."]

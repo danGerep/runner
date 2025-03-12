@@ -2,11 +2,11 @@ extends Area2D
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
-enum TYPE {LIFE, SLOW_DOWN_TIME, REVER_TIME}
+enum TYPE {LIFE, SLOW_DOWN_TIME, REVERT_TIME}
 
 var target: Vector2
 var speed: float = 200.0
-var type: TYPE = TYPE.LIFE
+var type: TYPE = TYPE.SLOW_DOWN_TIME
 
 
 func _ready() -> void:
