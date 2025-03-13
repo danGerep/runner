@@ -1,9 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuuwv3ec8ap7p"]
+[gd_scene load_steps=11 format=3 uid="uid://cuuwv3ec8ap7p"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_25yms"]
 [ext_resource type="PackedScene" uid="uid://cwx581wx1lym6" path="res://scenes/godot.tscn" id="1_be7l6"]
 [ext_resource type="PackedScene" uid="uid://diey8mf2topkl" path="res://scenes/heart.tscn" id="3_lcknl"]
 [ext_resource type="PackedScene" uid="uid://dwbqbva5w2y4r" path="res://components/engine_manager.tscn" id="4_mik1g"]
+[ext_resource type="Texture2D" uid="uid://clc1bupydpgwg" path="res://assets/sky.png" id="5_hnf2l"]
+[ext_resource type="Script" path="res://scenes/parallax_background.gd" id="5_sr08v"]
+[ext_resource type="Texture2D" uid="uid://bn2s6v37b72pw" path="res://assets/third.png" id="6_h8rrk"]
+[ext_resource type="Texture2D" uid="uid://hrnu81pecmoq" path="res://assets/second.png" id="7_e4hq4"]
+[ext_resource type="Texture2D" uid="uid://cfugfiesyrovn" path="res://assets/first.png" id="8_dnnhf"]
 
 [sub_resource type="Curve2D" id="Curve2D_m0flm"]
 _data = {
@@ -75,3 +80,39 @@ layout_mode = 2
 
 [node name="Heart3" parent="CanvasLayer/PanelContainer/MarginContainer/LifeContainer" instance=ExtResource("3_lcknl")]
 layout_mode = 2
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("5_sr08v")
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(2560, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(1280, 280)
+texture = ExtResource("5_hnf2l")
+region_rect = Rect2(-0.0405178, 0.228802, 2560, 719.77)
+
+[node name="ThirdBuildings" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(2560, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ThirdBuildings"]
+position = Vector2(1280, 280)
+texture = ExtResource("6_h8rrk")
+
+[node name="SecondBuildings" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(2560, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SecondBuildings"]
+position = Vector2(1280, 280)
+texture = ExtResource("7_e4hq4")
+
+[node name="FirstBuildings" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(2560, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FirstBuildings"]
+position = Vector2(1280, 280)
+texture = ExtResource("8_dnnhf")
