@@ -1,17 +1,18 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwx581wx1lym6"]
 
-[ext_resource type="Texture2D" uid="uid://bj62r6k8roo08" path="res://icon.svg" id="1_7pbvm"]
 [ext_resource type="Script" path="res://scenes/godot.gd" id="1_po662"]
+[ext_resource type="Texture2D" uid="uid://c4ugyjy77elxr" path="res://assets/godot.png" id="2_6r15x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3x7jh"]
-size = Vector2(128, 126)
+size = Vector2(32, 32)
 
 [node name="Godot" type="Area2D"]
 collision_mask = 6
 script = ExtResource("1_po662")
 
 [node name="Area2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_7pbvm")
+texture_filter = 1
+texture = ExtResource("2_6r15x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)

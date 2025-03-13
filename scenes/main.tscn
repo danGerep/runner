@@ -41,7 +41,7 @@ position = Vector2(224.658, -427.379)
 rotation = -0.000656907
 
 [node name="Godot" parent="." instance=ExtResource("1_be7l6")]
-position = Vector2(69, 156)
+position = Vector2(113, 206)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
