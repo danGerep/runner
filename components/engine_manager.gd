@@ -64,4 +64,8 @@ func _on_spawn_things_timer_timeout() -> void:
 
 func slow_down_time() -> void:
 	for child in engines.get_children():
+		if child.slowed:
+			continue
+
 		child.speed = child.speed - (child.speed/2)
+		child.slowed = true

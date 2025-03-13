@@ -1,7 +1,7 @@
 extends ParallaxBackground
 
 
-@export var scroll_speed: float = -2000.0  # Adjust speed as needed
+@export var scroll_speed: float = -200.0  # Adjust speed as needed
 
 func _process(delta):
 	scroll_offset.x += scroll_speed * delta
