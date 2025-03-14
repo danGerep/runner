@@ -3,6 +3,7 @@ extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var counter_label: Label = $CounterLabel
 @onready var slow_down_timer: Timer = $SlowDownTimer
+@onready var rever_time_timer: Timer = $ReverTimeTimer
 
 enum TYPE { NORMAL, COUNTER }
 
@@ -13,12 +14,14 @@ var type: TYPE = TYPE.NORMAL
 
 # Checks if the engine is already slowed. I should be slowed once.
 var slowed: bool
+var reverted: bool
 
 # Keep track of the slow amount to undo the effect later.
 var slow_down_amount:float
 
 
 func _ready() -> void:
+	rever_time_timer.timeout.connect(_on_rever_time_timer)
 	slow_down_timer.timeout.connect(_on_slow_down_timer_timeout)
 	area_entered.connect(_on_area_entered)
 	mouse_entered.connect(_on_mouse_entered)
@@ -29,6 +32,10 @@ func _ready() -> void:
 
 func _on_slow_down_timer_timeout() -> void:
 	speed = speed / (1 - slow_down_amount)
+
+
+func _on_rever_time_timer() -> void:
+	speed *= -1
 
 
 func _on_mouse_entered() -> void:
@@ -70,4 +77,12 @@ func slow_down(amount: float) -> void:
 	slow_down_amount = amount
 
 	speed -= speed * slow_down_amount
-	print("updated speed ", speed)
+
+
+func revert_time() -> void:
+	if reverted:
+		return
+	
+	speed *= -1
+	reverted = true
+	rever_time_timer.start()

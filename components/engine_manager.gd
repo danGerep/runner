@@ -69,4 +69,4 @@ func slow_down_time() -> void:
 
 func rever_time() -> void:
 	for child in engines.get_children():
-		child.slow_down()
+		child.revert_time()

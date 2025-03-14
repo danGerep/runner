@@ -6,7 +6,7 @@ enum TYPE {LIFE, SLOW_DOWN_TIME, REVERT_TIME}
 
 var target: Vector2
 var speed: float = 200.0
-var type: TYPE = TYPE.SLOW_DOWN_TIME
+var type: TYPE = TYPE.REVERT_TIME
 
 
 func _ready() -> void:

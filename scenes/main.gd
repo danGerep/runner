@@ -24,6 +24,8 @@ func _on_good_thing_collected(type: String) -> void:
 		life_container.add_child(heart)
 	if type == "SLOW_DOWN_TIME":
 		engine_manager.slow_down_time()
+	if type == "REVERT_TIME":
+		engine_manager.rever_time()
 
 
 func _on_player_damaged() -> void:
