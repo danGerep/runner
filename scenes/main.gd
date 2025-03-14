@@ -7,6 +7,8 @@ var heart_scene: PackedScene = preload("res://scenes/heart.tscn")
 @onready var life_container: HBoxContainer = %LifeContainer
 @onready var points_label: Label = %PointsLabel
 @onready var engine_manager: Node = $EngineManager
+@onready var game_over: Control = %GameOver
+@onready var game_over_score: Label = %GameOverScore
 
 
 var total_points: int
@@ -31,8 +33,9 @@ func _on_good_thing_collected(type: String) -> void:
 func _on_player_damaged() -> void:
 	var total_life: int = life_container.get_child_count()
 	if total_life == 0:
-		print("you died")
-		return
+		game_over.visible = true
+		game_over_score.text = "%d points" % total_points
+		get_tree().paused = true
 
 	life_container.remove_child(life_container.get_child(0))
 
