@@ -15,9 +15,7 @@ func _ready() -> void:
 
 
 func get_random_type() -> void:
-	var values = TYPE.values() # Get an array of all enum values
-	var random_index = randi() % values.size() # Generate a random index within the array's bounds
-	type = values[random_index]
+	type = TYPE.values()[TYPE.values().pick_random()]
 
 
 func _on_mouse_entered() -> void:
