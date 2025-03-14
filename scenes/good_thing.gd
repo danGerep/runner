@@ -6,8 +6,13 @@ enum TYPE {LIFE, SLOW_DOWN_TIME, REVERT_TIME}
 
 var target: Vector2
 var speed: float = 200.0
-var type: TYPE = TYPE.REVERT_TIME
+var type: TYPE = TYPE.LIFE
 
+var icons: Dictionary = {
+	"LIFE": preload("res://assets/heart.png"),
+	"SLOW_DOWN_TIME": preload("res://assets/slow.png"),
+	"REVERT_TIME": preload("res://assets/revert.png")
+}
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
@@ -15,7 +20,10 @@ func _ready() -> void:
 
 
 func get_random_type() -> void:
-	type = TYPE.values()[TYPE.values().pick_random()]
+	type = TYPE.values().pick_random()
+	var key = TYPE.keys()[type]
+	print(type, key)
+	sprite_2d.texture = icons[key]
 
 
 func _on_mouse_entered() -> void:
@@ -33,7 +41,3 @@ func _process(delta: float) -> void:
 
 func set_target_position(pos: Vector2) -> void:
 	target = pos
-
-
-func set_texture(texture: Texture2D) -> void:
-	sprite_2d.texture = texture

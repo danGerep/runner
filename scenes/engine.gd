@@ -12,7 +12,7 @@ var speed: float = 200.0
 var counter: int
 var type: TYPE = TYPE.NORMAL
 
-# Checks if the engine is already slowed. I should be slowed once.
+# Checks if the engine is already slowed/reverted. I should happen once.
 var slowed: bool
 var reverted: bool
 
