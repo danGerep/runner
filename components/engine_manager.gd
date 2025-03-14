@@ -71,3 +71,15 @@ func slow_down_time() -> void:
 func rever_time() -> void:
 	for child in engines.get_children():
 		child.revert_time()
+
+
+func stop_everything() -> void:
+	spawn_good_things.stop()
+	spawn_things_timer.stop()
+	spawn_things_with_counter.stop()
+	
+	for child in engines.get_children():
+		engines.remove_child(child)
+	
+	for child in good_things.get_children():
+		good_things.remove_child(child)

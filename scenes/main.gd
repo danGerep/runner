@@ -9,12 +9,14 @@ var heart_scene: PackedScene = preload("res://scenes/heart.tscn")
 @onready var engine_manager: Node = $EngineManager
 @onready var game_over: Control = %GameOver
 @onready var game_over_score: Label = %GameOverScore
+@onready var try_again: Button = %TryAgain
 
 
 var total_points: int
 
 
 func _ready() -> void:
+	try_again.pressed.connect(_on_try_again_pressed)
 	GameManager.engine_killed.connect(_on_engine_killed)
 	GameManager.player_damaged.connect(_on_player_damaged)
 	GameManager.good_thing_collected.connect(_on_good_thing_collected)
@@ -30,16 +32,25 @@ func _on_good_thing_collected(type: String) -> void:
 		engine_manager.rever_time()
 
 
+func _stop_the_world() -> void:
+	engine_manager.stop_everything()
+	
+
 func _on_player_damaged() -> void:
 	var total_life: int = life_container.get_child_count()
-	if total_life == 0:
+	if total_life == 1:
 		game_over.visible = true
 		game_over_score.text = "%d points" % total_points
-		get_tree().paused = true
+		_stop_the_world()
 
-	life_container.remove_child(life_container.get_child(0))
+	if life_container.get_child_count() > 0:
+		life_container.remove_child(life_container.get_child(0))
 
 
 func _on_engine_killed(points: int) -> void:
 	total_points += points
 	points_label.text = str(total_points)
+
+
+func _on_try_again_pressed() -> void:
+	get_tree().reload_current_scene()
