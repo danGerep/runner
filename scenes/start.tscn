@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://buceqjxlwad5h"]
+[gd_scene load_steps=7 format=3 uid="uid://buceqjxlwad5h"]
 
 [ext_resource type="Script" path="res://scenes/parallax_background.gd" id="1_cpjvo"]
+[ext_resource type="Script" path="res://scenes/start.gd" id="1_cupeu"]
 [ext_resource type="Texture2D" uid="uid://clc1bupydpgwg" path="res://assets/sky.png" id="2_2kmrr"]
 [ext_resource type="Texture2D" uid="uid://bn2s6v37b72pw" path="res://assets/third.png" id="3_psns7"]
 [ext_resource type="Texture2D" uid="uid://hrnu81pecmoq" path="res://assets/second.png" id="4_bjukc"]
 [ext_resource type="Texture2D" uid="uid://cfugfiesyrovn" path="res://assets/first.png" id="5_fly78"]
 
 [node name="Start" type="Node2D"]
+script = ExtResource("1_cupeu")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 script = ExtResource("1_cpjvo")
