@@ -32,6 +32,7 @@ func _on_spawn_good_things_timeout() -> void:
 	var good_thing = good_thing_scene.instantiate()
 	good_thing.speed = 100.0
 	good_things.add_child(good_thing)
+	good_thing.get_random_type()
 
 	#engine.set_texture(engine_icons.pick_random())
 	# TODO: should the good thing fly on a different direction?

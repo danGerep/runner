@@ -14,6 +14,12 @@ func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 
 
+func get_random_type() -> void:
+	var values = TYPE.values() # Get an array of all enum values
+	var random_index = randi() % values.size() # Generate a random index within the array's bounds
+	type = values[random_index]
+
+
 func _on_mouse_entered() -> void:
 	GameManager.good_thing_collected.emit(TYPE.keys()[type])
 	queue_free()
