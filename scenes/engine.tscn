@@ -20,3 +20,7 @@ offset_left = -9.0
 offset_top = -35.0
 offset_right = 31.0
 offset_bottom = -12.0
+
+[node name="SlowDownTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true

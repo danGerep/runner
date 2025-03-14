@@ -6,12 +6,13 @@
 script = ExtResource("1_ps4w2")
 
 [node name="SpawnThingsWithCounter" type="Timer" parent="."]
-autostart = true
 
 [node name="SpawnThingsTimer" type="Timer" parent="."]
+one_shot = true
 autostart = true
 
 [node name="SpawnGoodThings" type="Timer" parent="."]
+one_shot = true
 autostart = true
 
 [node name="Engines" type="Node" parent="."]
