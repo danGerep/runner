@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://buceqjxlwad5h"]
+
+[ext_resource type="Script" path="res://scenes/parallax_background.gd" id="1_cpjvo"]
+[ext_resource type="Texture2D" uid="uid://clc1bupydpgwg" path="res://assets/sky.png" id="2_2kmrr"]
+[ext_resource type="Texture2D" uid="uid://bn2s6v37b72pw" path="res://assets/third.png" id="3_psns7"]
+[ext_resource type="Texture2D" uid="uid://hrnu81pecmoq" path="res://assets/second.png" id="4_bjukc"]
+[ext_resource type="Texture2D" uid="uid://cfugfiesyrovn" path="res://assets/first.png" id="5_fly78"]
+
+[node name="Start" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("1_cpjvo")
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(2560, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(1280, 280)
+texture = ExtResource("2_2kmrr")
+region_rect = Rect2(-0.0405178, 0.228802, 2560, 719.77)
+
+[node name="ThirdBuildings" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(2560, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ThirdBuildings"]
+position = Vector2(1280, 280)
+texture = ExtResource("3_psns7")
+
+[node name="SecondBuildings" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(2560, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/SecondBuildings"]
+position = Vector2(1280, 280)
+texture = ExtResource("4_bjukc")
+
+[node name="FirstBuildings" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(2560, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FirstBuildings"]
+position = Vector2(1280, 280)
+texture = ExtResource("5_fly78")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "GODOT RUNNER"
+
+[node name="Start" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start"
