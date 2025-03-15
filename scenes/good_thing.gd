@@ -9,7 +9,7 @@ var speed: float = 200.0
 var type: TYPE = TYPE.LIFE
 
 var icons: Dictionary = {
-	TYPE.LIFE: preload("res://assets/heart.png"),
+	TYPE.LIFE: preload("res://assets/shield.png"),
 	TYPE.SLOW_DOWN_TIME: preload("res://assets/slow.png"),
 	TYPE.REVERT_TIME: preload("res://assets/revert.png")
 }
@@ -30,12 +30,12 @@ func _on_mouse_entered() -> void:
 	queue_free()
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	queue_free()
 
 
 func _process(delta: float) -> void:
-	position = position.move_toward(target, delta*speed)
+	position = position.move_toward(target, delta * speed)
 
 
 func set_target_position(pos: Vector2) -> void:

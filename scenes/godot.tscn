@@ -4,16 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://c4ugyjy77elxr" path="res://assets/godot.png" id="2_6r15x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3x7jh"]
-size = Vector2(32, 32)
+size = Vector2(34, 32)
 
 [node name="Godot" type="Area2D"]
-collision_mask = 6
+collision_mask = 2
 script = ExtResource("1_po662")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3x7jh")
 
 [node name="Area2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("2_6r15x")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_3x7jh")

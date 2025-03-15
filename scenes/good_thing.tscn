@@ -1,19 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwr8barx4xlxr"]
+[gd_scene load_steps=3 format=3 uid="uid://bwr8barx4xlxr"]
 
 [ext_resource type="Script" path="res://scenes/good_thing.gd" id="1_2kwfo"]
-[ext_resource type="Texture2D" uid="uid://c8tbm6354a8vm" path="res://assets/revert.png" id="2_nj4me"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1bv2"]
-size = Vector2(35, 28)
+size = Vector2(42, 42)
 
 [node name="GoodThing" type="Area2D"]
-collision_layer = 2
+collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_2kwfo")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_nj4me")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_i1bv2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
