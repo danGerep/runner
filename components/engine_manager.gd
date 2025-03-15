@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 
 	total_timer += delta
 	elapsed_time += delta
-	
+
 	if elapsed_time >= 10.5:
 		elapsed_time = 0.0
 		things_with_counter_interval = max(0.5, things_with_counter_interval - 0.2)
