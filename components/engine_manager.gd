@@ -19,11 +19,12 @@ var engine_icons: Array = [
 @export var godot: Area2D
 @export var path_follow_2d: PathFollow2D
 
-@export var things_with_counter_interval: float = 1.0
-@export var things_interval: float = 1.0
+@export var things_with_counter_interval: float = 4.0
+@export var things_interval: float = 3.0
 @export var good_things_interval: float = 10.0
 
 var total_timer: float
+var elapsed_time: float
 
 var game_stopped: bool
 
@@ -41,6 +42,17 @@ func _process(delta: float) -> void:
 		return
 
 	total_timer += delta
+	elapsed_time += delta
+	
+	if elapsed_time >= 10.5:
+		elapsed_time = 0.0
+		things_with_counter_interval = max(0.5, things_with_counter_interval - 0.2)
+		spawn_things_with_counter.wait_time = things_with_counter_interval
+		good_things_interval = max(0.5, good_things_interval - 0.1)
+		spawn_good_things.wait_time = good_things_interval
+		things_interval = max(0.5, things_interval - 0.5)
+		spawn_things_timer.wait_time = things_interval
+
 	if total_timer > 5.0 and spawn_things_with_counter.is_stopped():
 		spawn_things_with_counter.start()
 		spawn_things_with_counter.wait_time = things_with_counter_interval

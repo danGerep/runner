@@ -18,7 +18,6 @@ var total_points: int
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(custom_cursor, Input.CURSOR_ARROW, Vector2(32, 32))
 
-
 	try_again.pressed.connect(_on_try_again_pressed)
 	GameManager.engine_killed.connect(_on_engine_killed)
 	GameManager.player_damaged.connect(_on_player_damaged)
