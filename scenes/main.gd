@@ -1,6 +1,7 @@
 extends Node2D
 
 var heart_scene: PackedScene = preload("res://scenes/heart.tscn")
+var custom_cursor = preload("res://assets/mouse-aim.png")
 
 @onready var path_follow_2d: PathFollow2D = $SpawnLine/PathFollow2D
 @onready var godot: Area2D = $Godot
@@ -11,11 +12,13 @@ var heart_scene: PackedScene = preload("res://scenes/heart.tscn")
 @onready var game_over_score: Label = %GameOverScore
 @onready var try_again: Button = %TryAgain
 
-
 var total_points: int
 
 
 func _ready() -> void:
+	Input.set_custom_mouse_cursor(custom_cursor, Input.CURSOR_ARROW, Vector2(32, 32))
+
+
 	try_again.pressed.connect(_on_try_again_pressed)
 	GameManager.engine_killed.connect(_on_engine_killed)
 	GameManager.player_damaged.connect(_on_player_damaged)
