@@ -35,3 +35,4 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 2d_physics/layer_1="player"
 2d_physics/layer_2="engines"
 2d_physics/layer_3="mouse"
+2d_physics/layer_4="good_thing"
